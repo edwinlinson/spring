@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::#adduser})">
+<head>
+  <meta charset="UTF-8">
+  <title>home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+</head>
+<body>
+<!--------------------------------------------------------content----------------------------------------------->
+<section id="adduser" class="d-flex justify-content-center align-items-center mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+
+                <div class="container center_div">
+                    <form id="add-user" class="form-inline" th:action="@{/admin/adduserPOST}" th:object="${user}" method="post">
+
+                        <label class="sr-only" for="name"></label>
+                        <input
+                                name="userName"
+                                type="text"
+                                class="form-control mb-2 mr-sm-2 mb-sm-0"
+                                id="name"
+                                placeholder="Full Name">
+
+
+                        <label class="sr-only" for="email"></label>
+
+                            <input
+                                    name="email"
+                                    type="text"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="Username">
+
+
+                        <label class="sr-only" for="password"></label>
+                        <input
+                                name="password"
+                                type="text"
+                                class="form-control mb-2 mr-sm-2 mb-sm-0"
+                                id="password"
+                                placeholder="Password">
+
+                        <label class="sr-only" for="role"></label>
+                        <input
+                                name="role"
+                                type="text"
+                                class="form-control mb-2 mr-sm-2 mb-sm-0"
+                                id="role"
+                                placeholder="role">
+
+                        <button type="submit" class="btn btn-primary btn-space">Add User</button>
+                    </form>
+
+                </div>
+
+        </div>
+    </div>
+    </div>
+</section>
+</body>

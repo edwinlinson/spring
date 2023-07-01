@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::#adminDashboard})">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<section id="adminDashboard" class="d-flex justify-content-center align-items-center mt-5">
+    <a th:href="@{/admin/addUser}"><button class="btn btn-primary">ADD USER</button></a>
+    <a th:href="@{/admin/updateUser}"><button class="btn btn-primary">UPDATE USER</button></a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Enabled</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="e: ${users}">
+            <th scope="row" th:text="${e.id}"></th>
+            <td th:text="${e.userName}"></td>
+            <td th:text="${e.email}"></td>
+            <td th:text="${e.role}"></td>
+            <td th:text="${e.enabled}"></td>
+            <td> <a th:href="@{'/admin/updateUser/'+${e.id}}" class="btn btn-primary">Update</a>
+                <a th:href="@{'/admin/deleteUser/'+${e.id}}" class="btn btn-danger">Delete</a></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
